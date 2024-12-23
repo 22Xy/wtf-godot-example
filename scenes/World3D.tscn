@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cleclfw0cv6md"]
+
+[ext_resource type="Script" path="res://scripts/World3D.gd" id="1_0p3ix"]
+[ext_resource type="PackedScene" uid="uid://bvphwudk1ng76" path="res://player/knight.tscn" id="2_1txsv"]
+[ext_resource type="PackedScene" uid="uid://dxw0dlijpperh" path="res://player/dummy.tscn" id="4_72rn7"]
+[ext_resource type="PackedScene" uid="uid://c3qxvgdqre4rq" path="res://starbase/Level_1.tscn" id="4_oopyx"]
+
+[sub_resource type="Environment" id="Environment_gqe8v"]
+background_energy_multiplier = 0.5
+fog_enabled = true
+fog_light_energy = 0.5
+
+[node name="World3D" type="Node3D"]
+script = ExtResource("1_0p3ix")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gqe8v")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.953691, -0.0596952, 0.294806, -0.193239, 0.629497, 0.752591, -0.230505, -0.774706, 0.58881, 8.77635, 60.426, 71.4508)
+shadow_enabled = true
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.4589, 11.4801, -6.04903)
+text = "STARBASE"
+font_size = 512
+
+[node name="Dummy" parent="." instance=ExtResource("4_72rn7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139.983, 61.4748, 74.4503)
+
+[node name="Level1" parent="." instance=ExtResource("4_oopyx")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, -0.214737)
+
+[node name="Knight" parent="." instance=ExtResource("2_1txsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.391, 3.12417, 12.8478)
+
+[node name="Level2" parent="." instance=ExtResource("4_oopyx")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 300.583, 50.0691, -67.0778)
